@@ -60,4 +60,25 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.filteredProducts = this.filteredProducts.slice(0, 8);
     }
   }
+
+  sortProducts(sortOption: string): void {
+    switch (sortOption) {
+      case 'nameAsc':
+        this.filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+        break;
+      case 'nameDesc':
+        this.filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
+        break;
+      case 'priceAsc':
+        this.filteredProducts.sort((a, b) => a.price - b.price);
+        break;
+      case 'priceDesc':
+        this.filteredProducts.sort((a, b) => b.price - a.price);
+        break;
+      case 'categoryAsc':
+        this.filteredProducts.sort((a, b) => a.category.localeCompare(b.category));
+        break;
+      default:
+    }
+  }
 }
