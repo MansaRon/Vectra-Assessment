@@ -1,7 +1,12 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col align-self-start">
-            Products found: {{ totalProducts }}
+            <span>
+                Products found: {{ totalProducts }}
+            </span>
+            <span>
+                <input type="text" [(ngModel)]="searchKeyword" placeholder="Search..." (input)="filterProducts()">
+            </span>
         </div>
         <div class="col align-self-end text-end">
             One of three columns

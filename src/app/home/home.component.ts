@@ -46,4 +46,18 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.filteredProducts = [...this.products];
   }
   
+  filterProducts() {
+    this.filteredProducts = this.products.filter(product =>
+        product.name.toLowerCase().includes(this.searchKeyword.toLowerCase()) ||
+        product.category.toLowerCase().includes(this.searchKeyword.toLowerCase()) ||
+        product.price.toString().includes(this.searchKeyword)
+      )
+      .filter(product =>
+        this.selectedCategory ? product.category === this.selectedCategory : true
+      );
+
+    if (!this.showAll) {
+      this.filteredProducts = this.filteredProducts.slice(0, 8);
+    }
+  }
 }
