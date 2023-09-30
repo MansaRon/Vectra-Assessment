@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   showAll = false;
   totalProducts: number = 0;
   productSub!: Subscription;
+  selectedSortOption = 'nameAsc';
 
   constructor(private productService: ProductService) {}
   
@@ -61,8 +62,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   }
 
-  sortProducts(sortOption: string): void {
-    switch (sortOption) {
+  sortProducts(): void {
+    switch (this.selectedCategory) {
       case 'nameAsc':
         this.filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
         break;
