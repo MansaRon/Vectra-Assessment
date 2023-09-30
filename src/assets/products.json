@@ -1,0 +1,86 @@
+[
+    {
+        "id": 1,
+        "name": "iPhone 5",
+        "price": "R3500",
+        "category": "phone",
+        "image": "https://www.cnet.com/a/img/resize/be7016a6c9fe0a701a6553a71098e1ae087de262/hub/2012/09/17/314619ad-8bb7-11e3-a24e-d4ae52e62bcc/06_archimedes_35438535.jpg?auto=webp&fit=crop&height=1200&width=1200"
+    },
+    {
+        "id": 2,
+        "name": "iPhone 6",
+        "price": "R3800",
+        "category": "phone",
+        "image": "https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP705/SP705-iphone_6-mul.png"
+    },
+    {
+        "id": 3,
+        "name": "iPhone 7",
+        "price": "R4500",
+        "category": "phone",
+        "image": "https://www.incredible.co.za/media/catalog/product/cache/7ce9addd40d23ee411c2cc726ad5e7ed/i/p/iphone8_spacegray_360_us_en_print_ecommerce_f0ec.png"
+    },
+    {
+        "id": 4,
+        "name": "iPhone 8",
+        "price": "R4800",
+        "category": "phone",
+        "image": "https://www.incredible.co.za/media/catalog/product/cache/7ce9addd40d23ee411c2cc726ad5e7ed/i/p/iphone8_spacegray_360_us_en_print_ecommerce_f6cd.png"
+    },
+    {
+        "id": 5,
+        "name": "Macbook Air M1",
+        "price": "R14999",
+        "category": "laptop",
+        "image": "https://www.istore.co.za/media/catalog/product/m/a/macbook_air_gold_w.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700"
+    },
+    {
+        "id": 6,
+        "name": "Macbook Air M2",
+        "price": "R25999",
+        "category": "laptop",
+        "image": "https://www.istore.co.za/media/catalog/product/m/a/macbook_pro_13_in_space_gray_pdp_image_position-1__wwen_1_1.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700"
+    },
+    {
+        "id": 7,
+        "name": "Macbook Pro M1",
+        "price": "R26999",
+        "category": "laptop",
+        "image": "https://mobitronics.co.za/wp-content/uploads/2023/03/macbook_pro_spgry_pdp_image_position-1_m1_chip__wwen.jpg.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Macbook Pro M2",
+        "price": "R35999",
+        "category": "laptop",
+        "image": "https://snapcraze.co.za/wp-content/uploads/2023/01/macbook-pro-m2-sg-3.png"
+    },
+    {
+        "id": 9,
+        "name": "Sony",
+        "price": "R8999",
+        "category": "headsets",
+        "image": "https://www.sony.com/image/5d02da5df552836db894cead8a68f5f3?fmt=pjpeg&wid=330&bgcolor=FFFFFF&bgc=FFFFFF"
+    },
+    {
+        "id": 10,
+        "name": "Volkano",
+        "price": "R399",
+        "category": "headsets",
+        "image": "https://www.incredible.co.za/media/catalog/product/cache/7ce9addd40d23ee411c2cc726ad5e7ed/v/o/volkano_black_5e65.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Beats",
+        "price": "R11999",
+        "category": "headsets",
+        "image": "https://www.incredible.co.za/media/catalog/product/cache/7ce9addd40d23ee411c2cc726ad5e7ed/m/x/mx432_ecommerce_951d.png"
+    },
+    {
+        "id": 12,
+        "name": "JBL",
+        "price": "R7999",
+        "category": "headsets",
+        "image": "https://www.hificorp.co.za/media/catalog/product/cache/7ce9addd40d23ee411c2cc726ad5e7ed/j/b/jbl_tune_510bt_product_image_hero_black_ecommerce_5ca7.png"
+    }
+]
