@@ -1,15 +1,43 @@
 <div class="container-fluid">
-    <div class="row">
+    <div class="row mb-4">
         <div class="col align-self-start">
             <span>
                 Products found: {{ totalProducts }}
             </span>
             <span>
                 <input type="text" [(ngModel)]="searchKeyword" placeholder="Search..." (input)="filterProducts()">
+                <button class="btn btn-outline-success">Search</button>
             </span>
         </div>
         <div class="col align-self-end text-end">
-            One of three columns
+            <label for="sort">Sort by:</label>
+            <select id="sort" [(ngModel)]="selectedSortOption" (change)="sortProducts()">
+                <option value="nameAsc">Name (A-Z)</option>
+                <option value="nameDesc">Name (Z-A)</option>
+                <option value="priceAsc">Price (Low to High)</option>
+                <option value="priceDesc">Price (High to Low)</option>
+                <option value="categoryAsc">Category (A-Z)</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div *ngFor="let product of filteredProducts" class="card" style="width: 18rem;">
+                    <img src="{{ product.image }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.category }}</p>
+                        <h3>{{ product.price | currency:"R" }}</h3>
+                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    </div>
+                </div>
+                <button (click)="expandList()">Show All</button>
+            </div>
         </div>
     </div>
 </div>
