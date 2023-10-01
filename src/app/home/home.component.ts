@@ -72,7 +72,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   sortProducts(): void {
-    console.log(this.selectedSortOption);
     switch (this.selectedSortOption) {
       case 'nameAsc':
         this.filteredProducts.sort((a, b) => a.name.localeCompare(b.name));

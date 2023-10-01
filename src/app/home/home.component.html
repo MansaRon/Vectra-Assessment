@@ -2,16 +2,16 @@
     <div class="row mb-4">
         <div class="col align-self-start">
             <span>
-                Products found: {{ totalProducts }}
+                Products found: <b>{{ totalProducts }}</b>
             </span>
             <span>
-                <input type="text" [(ngModel)]="searchKeyword" placeholder="Search..." (input)="filterProducts()">
+                <input type="text" [(ngModel)]="searchKeyword" placeholder="Search for items in this list" (input)="filterProducts()">
                 <button class="btn btn-outline-success">Search</button>
             </span>
         </div>
         <div class="col align-self-end text-end">
             <label for="sort">Sort by:</label>
-            <select id="sort" [(ngModel)]="selectedSortOption" (ngModelChange)="sortProducts()">
+            <select class="mx-2" id="sort" [(ngModel)]="selectedSortOption" (ngModelChange)="sortProducts()">
                 <option value="nameAsc">Name (A-Z)</option>
                 <option value="nameDesc">Name (Z-A)</option>
                 <option value="priceAsc">Price (Low to High)</option>
@@ -24,18 +24,14 @@
     <div class="row">
         <div class="col-md-3">
             <label>Filter by Category:</label>
-                <div *ngFor="let category of categories">
-                    <input type="checkbox" id="{{ category }}" [(ngModel)]="selectedCategory[category]" (change)="filterProducts()"/>
-                    <label for="{{ category }}">{{ category | titlecase }}</label>
-                </div>
-            <!-- <select [(ngModel)]="selectedCategory" (change)="filterProducts()">
-                <option value="">Categories</option>
-                <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
-            </select> -->
+            <div *ngFor="let category of categories">
+                <input type="checkbox" id="{{ category }}" [(ngModel)]="selectedCategory[category]" (change)="filterProducts()"/>
+                <label class="mx-3" for="{{ category }}">{{ category | titlecase }}</label>
+            </div>
         </div>
         <div class="col-md-9">
             <div class="row">
-                <div *ngFor="let product of filteredProducts" class="card card-width">
+                <div *ngFor="let product of filteredProducts" class="card card-width m-2">
                     <img src="{{ product.image }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{ product.name }}</h5>
