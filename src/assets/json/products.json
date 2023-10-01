@@ -46,14 +46,14 @@
         "name": "Macbook Pro M1",
         "price": 26999,
         "category": "laptop",
-        "image": "https://mobitronics.co.za/wp-content/uploads/2023/03/macbook_pro_spgry_pdp_image_position-1_m1_chip__wwen.jpg.jpg"
+        "image": "https://www.istore.co.za/media/catalog/product/m/a/macbook_pro_silver-1_1_1.png?format=jpeg"
     },
     {
         "id": 8,
         "name": "Macbook Pro M2",
         "price": 35999,
         "category": "laptop",
-        "image": "https://snapcraze.co.za/wp-content/uploads/2023/01/macbook-pro-m2-sg-3.png"
+        "image": "https://www.istore.co.za/media/catalog/product/m/a/macbook_pro_14-in_m2.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700"
     },
     {
         "id": 9,

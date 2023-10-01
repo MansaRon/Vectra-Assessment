@@ -42,6 +42,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.filteredProducts = this.products.slice(0, 8); 
         this.categories = [...new Set(this.products.map(product => product.category))];
         this.categories.forEach(category => this.selectedCategory[category] = false);
+        this.loadPersistedValues();
       }
     });
   }
@@ -79,6 +80,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     if (!this.showAll) {
       this.filteredProducts = this.filteredProducts.slice(0, 8);
     }
+
+    sessionStorage.setItem('searchKeyword', this.searchKeyword);
+    sessionStorage.setItem('selectedCategory', JSON.stringify(this.selectedCategory));
   }
 
   sortProducts(): void {
@@ -100,5 +104,14 @@ export class HomeComponent implements OnInit, OnDestroy {
         break;
       default:
     }
+    sessionStorage.setItem('selectedSortOption', this.selectedSortOption);
   }
+
+  loadPersistedValues(): void {
+    this.selectedSortOption = sessionStorage.getItem('selectedSortOption') || 'nameAsc';
+    this.searchKeyword = sessionStorage.getItem('searchKeyword') || '';
+    const persistedCategories = sessionStorage.getItem('selectedCategories');
+    this.selectedCategory = persistedCategories ? JSON.parse(persistedCategories) : {};
+  }
+
 }
