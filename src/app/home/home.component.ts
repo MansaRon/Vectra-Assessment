@@ -35,9 +35,9 @@ export class HomeComponent implements OnInit, OnDestroy {
       next: (data) => {
         this.products = data;
         this.totalProducts = this.products.length;
-        console.table(this.products);
+        // console.table(this.products);
         this.filteredProducts = this.products.slice(0, 8); 
-        this.categories = [...new Set(this.products.map(product => product.category.toUpperCase()))];
+        this.categories = [...new Set(this.products.map(product => product.category))];
         this.categories.forEach(category => this.selectedCategory[category] = false);
       }
     });

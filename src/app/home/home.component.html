@@ -26,7 +26,7 @@
             <label>Filter by Category:</label>
                 <div *ngFor="let category of categories">
                     <input type="checkbox" id="{{ category }}" [(ngModel)]="selectedCategory[category]" (change)="filterProducts()"/>
-                    <label for="{{ category }}">{{ category }}</label>
+                    <label for="{{ category }}">{{ category | titlecase }}</label>
                 </div>
             <!-- <select [(ngModel)]="selectedCategory" (change)="filterProducts()">
                 <option value="">Categories</option>
