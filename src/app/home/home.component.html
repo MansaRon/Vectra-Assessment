@@ -1,15 +1,14 @@
-<div class="container-fluid">
+<div class="container-fluid py-2">
     <div class="row mb-4">
-        <div class="col align-self-start">
+        <div class="col">
             <span>
                 Products found: <b>{{ totalProducts }}</b>
             </span>
-            <span>
+            <span class="searchKeyword">
                 <input type="text" [(ngModel)]="searchKeyword" placeholder="Search for items in this list" (input)="filterProducts()">
-                <button class="btn btn-outline-success">Search</button>
             </span>
         </div>
-        <div class="col align-self-end text-end">
+        <div class="col sort-drop-down">
             <label for="sort">Sort by:</label>
             <select class="mx-2" id="sort" [(ngModel)]="selectedSortOption" (ngModelChange)="sortProducts()">
                 <option value="nameAsc">Name (A-Z)</option>
@@ -22,7 +21,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <label>Filter by Category:</label>
             <div *ngFor="let category of categories">
                 <input type="checkbox" id="{{ category }}" [(ngModel)]="selectedCategory[category]" (change)="filterProducts()"/>
