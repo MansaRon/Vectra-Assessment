@@ -11,7 +11,7 @@
         </div>
         <div class="col align-self-end text-end">
             <label for="sort">Sort by:</label>
-            <select id="sort" [(ngModel)]="selectedSortOption" (change)="sortProducts()">
+            <select id="sort" [(ngModel)]="selectedSortOption" (ngModelChange)="sortProducts()">
                 <option value="nameAsc">Name (A-Z)</option>
                 <option value="nameDesc">Name (Z-A)</option>
                 <option value="priceAsc">Price (Low to High)</option>
@@ -23,7 +23,15 @@
 
     <div class="row">
         <div class="col-md-3">
-
+            <label>Filter by Category:</label>
+                <div *ngFor="let category of categories">
+                    <input type="checkbox" id="{{ category }}" [(ngModel)]="selectedCategory[category]" (change)="filterProducts()"/>
+                    <label for="{{ category }}">{{ category }}</label>
+                </div>
+            <!-- <select [(ngModel)]="selectedCategory" (change)="filterProducts()">
+                <option value="">Categories</option>
+                <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+            </select> -->
         </div>
         <div class="col-md-9">
             <div class="row">
@@ -33,7 +41,6 @@
                         <h5 class="card-title">{{ product.name }}</h5>
                         <p class="card-text">{{ product.category }}</p>
                         <h3>{{ product.price | currency:"R" }}</h3>
-                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                     </div>
                 </div>
                 <button (click)="expandList()">Show All</button>

@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   products!: Product[];
   filteredProducts: Product[] = [];
   categories: string[] = [];
-  selectedCategory = '';
+  selectedCategory: { [key: string]: boolean } = {};
   searchKeyword = '';
   showAll = false;
   totalProducts: number = 0;
@@ -37,9 +37,10 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.totalProducts = this.products.length;
         console.table(this.products);
         this.filteredProducts = this.products.slice(0, 8); 
-        this.categories = [...new Set(this.products.map(product => product.category))];
+        this.categories = [...new Set(this.products.map(product => product.category.toUpperCase()))];
+        this.categories.forEach(category => this.selectedCategory[category] = false);
       }
-    })
+    });
   }
 
   expandList(): void {
@@ -53,8 +54,8 @@ export class HomeComponent implements OnInit, OnDestroy {
         product.category.toLowerCase().includes(this.searchKeyword.toLowerCase()) ||
         product.price.toString().includes(this.searchKeyword)
       )
-      .filter(product =>
-        this.selectedCategory ? product.category === this.selectedCategory : true
+      .filter(product => this.selectedCategory[product.category] || 
+        Object.values(this.selectedCategory).every(value => !value)
       );
 
     if (!this.showAll) {
@@ -63,7 +64,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   sortProducts(): void {
-    switch (this.selectedCategory) {
+    console.log(this.selectedSortOption);
+    switch (this.selectedSortOption) {
       case 'nameAsc':
         this.filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
         break;
