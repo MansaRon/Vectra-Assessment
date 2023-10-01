@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   selectedCategory: { [key: string]: boolean } = {};
   searchKeyword = '';
   showAll = false;
+  showText = 'Show More';
   totalProducts: number = 0;
   productSub!: Subscription;
   selectedSortOption = 'nameAsc';
@@ -44,8 +45,15 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   expandList(): void {
-    this.showAll = true;
-    this.filteredProducts = [...this.products];
+    if (!this.showAll) {
+      this.showAll = true;
+      this.showText = 'Show Less'
+      this.filteredProducts = [...this.products];
+    } else {
+      this.showAll = false;
+      this.showText = 'Show More'
+      this.filteredProducts = this.products.slice(0, 8);
+    }
   }
   
   filterProducts() {

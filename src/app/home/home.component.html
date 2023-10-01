@@ -35,7 +35,7 @@
         </div>
         <div class="col-md-9">
             <div class="row">
-                <div *ngFor="let product of filteredProducts" class="card" style="width: 18rem;">
+                <div *ngFor="let product of filteredProducts" class="card card-width">
                     <img src="{{ product.image }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{ product.name }}</h5>
@@ -43,7 +43,7 @@
                         <h3>{{ product.price | currency:"R" }}</h3>
                     </div>
                 </div>
-                <button (click)="expandList()">Show All</button>
+                <p (click)="expandList()" class="text-center fs-4 text-primary" style="cursor: pointer;">{{ showText }}</p>
             </div>
         </div>
     </div>
