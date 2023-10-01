@@ -39,7 +39,8 @@
                         <h3>{{ product.price | currency:"R" }}</h3>
                     </div>
                 </div>
-                <p (click)="expandList()" class="text-center fs-4 text-primary" style="cursor: pointer;">{{ showText }}</p>
+                <p *ngIf="!showNoSearchResults" (click)="expandList()" class="text-center fs-4 text-primary" style="cursor: pointer;">{{ showText }}</p>
+                <p *ngIf="showNoSearchResults" class="text-center fs-4 text-danger">{{ notFoundMsg }}</p>
             </div>
         </div>
     </div>

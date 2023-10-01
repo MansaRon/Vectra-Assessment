@@ -20,6 +20,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   totalProducts: number = 0;
   productSub!: Subscription;
   selectedSortOption = 'nameAsc';
+  showNoSearchResults = false;
+  notFoundMsg = '';
 
   constructor(private productService: ProductService) {}
   
@@ -65,6 +67,14 @@ export class HomeComponent implements OnInit, OnDestroy {
       .filter(product => this.selectedCategory[product.category] || 
         Object.values(this.selectedCategory).every(value => !value)
       );
+
+    if (this.filteredProducts.length == 0) {
+      this.notFoundMsg = 'No match for searched items...';
+      this.showNoSearchResults = true;
+    }
+    else {
+      this.showNoSearchResults = false;
+    }
 
     if (!this.showAll) {
       this.filteredProducts = this.filteredProducts.slice(0, 8);
