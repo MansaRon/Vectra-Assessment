@@ -16,7 +16,7 @@
     {
         "id": 3,
         "name": "iPhone 7",
-        "price": "R4500",
+        "price": 4500,
         "category": "phone",
         "image": "https://www.incredible.co.za/media/catalog/product/cache/7ce9addd40d23ee411c2cc726ad5e7ed/i/p/iphone8_spacegray_360_us_en_print_ecommerce_f0ec.png"
     },
