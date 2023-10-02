@@ -21,3 +21,32 @@
     height: 100%;
     object-fit: cover;
 }
+
+@media (max-width: 576px) { 
+    .card-width {
+        width: 10rem;
+    }
+
+    .sort-drop-down {
+        display: flex;
+        justify-content: flex-end;
+        padding-left: 0px;
+    }
+
+    .mobileSearch {
+        width: 25em;
+    }
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) { 
+    .card-width {
+        width: 12rem;
+    }
+
+    .sort-drop-down {
+        display: flex;
+        justify-content: flex-end;
+        padding-left: 0px;
+    }
+}
