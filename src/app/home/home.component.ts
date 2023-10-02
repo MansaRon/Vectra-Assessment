@@ -22,10 +22,17 @@ export class HomeComponent implements OnInit, OnDestroy {
   selectedSortOption = 'nameAsc';
   showNoSearchResults = false;
   notFoundMsg = '';
+  isMobileResolution = false;
 
   constructor(private productService: ProductService) {}
   
   ngOnInit(): void {
+    if (window.innerWidth < 576) {
+      this.isMobileResolution = true;
+    } else {
+      this.isMobileResolution = false;
+    }
+
     this.loadProducts();
   }
 
