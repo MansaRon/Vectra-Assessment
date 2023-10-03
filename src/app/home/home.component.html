@@ -1,6 +1,38 @@
 <div class="container-fluid py-2">
-    <div class="row mb-4">
+
+    <div class="row" *ngIf="isMobileResolution">
+        <div class="col d-grid gap-2">
+            <input type="text" [(ngModel)]="searchKeyword" placeholder="Search for items in this list" (input)="filterProducts()">
+        </div>
+    </div>
+
+    <div class="row justify-content-evenly mt-2" *ngIf="isMobileResolution">
+        <div class="col-4">
+            <select id="category" [(ngModel)]="selectedCategory" (change)="filterProducts()">
+                <option value="">Categories</option>
+                <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+            </select>
+        </div>
+        <div class="col-4">
+            <select [(ngModel)]="selectedSortOption" (ngModelChange)="sortProducts()">
+                <option value="">Sort By</option>
+                <option value="nameAsc">Name (A-Z)</option>
+                <option value="nameDesc">Name (Z-A)</option>
+                <option value="priceAsc">Price (Low to High)</option>
+                <option value="priceDesc">Price (High to Low)</option>
+                <option value="categoryAsc">Category (A-Z)</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row mt-4" *ngIf="isMobileResolution">
         <div class="col">
+            Products found: <b>{{ totalProducts }}</b>
+        </div>
+    </div>
+    
+    <div class="row mb-4">
+        <div class="col" *ngIf="!isMobileResolution">
             <span>
                 Products found: <b>{{ totalProducts }}</b>
             </span>
@@ -8,7 +40,7 @@
                 <input type="text" [(ngModel)]="searchKeyword" placeholder="Search for items in this list" (input)="filterProducts()">
             </span>
         </div>
-        <div class="col sort-drop-down">
+        <div class="col sort-drop-down" *ngIf="!isMobileResolution">
             <label for="sort">Sort by:</label>
             <select class="mx-2" id="sort" [(ngModel)]="selectedSortOption" (ngModelChange)="sortProducts()">
                 <option value="nameAsc">Name (A-Z)</option>
@@ -21,12 +53,12 @@
     </div>
 
     <div class="row">
-        <div class="col-md-2">
-            <label>Filter by Category:</label>
-            <div *ngFor="let category of categories">
-                <input type="checkbox" id="{{ category }}" [(ngModel)]="selectedCategory[category]" (change)="filterProducts()"/>
-                <label class="mx-3" for="{{ category }}">{{ category | titlecase }}</label>
-            </div>
+        <div class="col-md-2 col-xs-12" *ngIf="!isMobileResolution">
+            <label for="category">Filter by Category:</label>
+            <select id="category" [(ngModel)]="selectedCategory" (change)="filterProducts()">
+              <option value="">Categories</option>
+              <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+            </select>
         </div>
         <div class="col-md-9">
             <div class="row">

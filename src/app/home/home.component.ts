@@ -13,13 +13,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   products!: Product[];
   filteredProducts: Product[] = [];
   categories: string[] = [];
-  selectedCategory: { [key: string]: boolean } = {};
+  selectedCategory = '';
   searchKeyword = '';
   showAll = false;
   showText = 'Show More';
   totalProducts: number = 0;
   productSub!: Subscription;
-  selectedSortOption = 'nameAsc';
+  selectedSortOption = '';
   showNoSearchResults = false;
   notFoundMsg = '';
   isMobileResolution = false;
@@ -45,10 +45,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       next: (data) => {
         this.products = data;
         this.totalProducts = this.products.length;
-        // console.table(this.products);
         this.filteredProducts = this.products.slice(0, 8); 
         this.categories = [...new Set(this.products.map(product => product.category))];
-        this.categories.forEach(category => this.selectedCategory[category] = false);
         this.loadPersistedValues();
       }
     });
@@ -70,10 +68,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.filteredProducts = this.products.filter(product =>
         product.name.toLowerCase().includes(this.searchKeyword.toLowerCase()) ||
         product.category.toLowerCase().includes(this.searchKeyword.toLowerCase()) ||
-        product.price.toString().includes(this.searchKeyword)
-      )
-      .filter(product => this.selectedCategory[product.category] || 
-        Object.values(this.selectedCategory).every(value => !value)
+        product.price.toString().includes(this.searchKeyword))
+      .filter(product =>
+        this.selectedCategory ? product.category === this.selectedCategory : true
       );
 
     if (this.filteredProducts.length == 0) {
@@ -89,7 +86,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     sessionStorage.setItem('searchKeyword', this.searchKeyword);
-    sessionStorage.setItem('selectedCategory', JSON.stringify(this.selectedCategory));
+    sessionStorage.setItem('selectedCategory', this.selectedCategory);
   }
 
   sortProducts(): void {
@@ -115,10 +112,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   loadPersistedValues(): void {
-    this.selectedSortOption = sessionStorage.getItem('selectedSortOption') || 'nameAsc';
+    this.selectedSortOption = sessionStorage.getItem('selectedSortOption') || '';
     this.searchKeyword = sessionStorage.getItem('searchKeyword') || '';
     const persistedCategories = sessionStorage.getItem('selectedCategories');
-    this.selectedCategory = persistedCategories ? JSON.parse(persistedCategories) : {};
+    this.selectedCategory = persistedCategories ? persistedCategories : '';
   }
 
 }

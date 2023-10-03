@@ -37,16 +37,3 @@
         width: 25em;
     }
 }
-
-/* // Medium devices (tablets, 768px and up) */
-@media (max-width: 768px) { 
-    .card-width {
-        width: 12rem;
-    }
-
-    .sort-drop-down {
-        display: flex;
-        justify-content: flex-end;
-        padding-left: 0px;
-    }
-}
