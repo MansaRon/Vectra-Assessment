@@ -73,6 +73,8 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.selectedCategory ? product.category === this.selectedCategory : true
       );
 
+    this.totalProducts = this.filteredProducts.length;
+
     if (this.filteredProducts.length == 0) {
       this.notFoundMsg = 'No match for searched items...';
       this.showNoSearchResults = true;
