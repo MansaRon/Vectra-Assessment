@@ -7,14 +7,14 @@
     </div>
 
     <div class="row justify-content-evenly mt-2" *ngIf="isMobileResolution">
-        <div class="col-4">
-            <select id="category" [(ngModel)]="selectedCategory" (change)="filterProducts()">
-                <option value="">Categories</option>
+        <div class="col-6">
+            <select class="mobile-drop-down" [(ngModel)]="selectedCategory" (change)="filterProducts()">
+                <option value="">Filters</option>
                 <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
             </select>
         </div>
-        <div class="col-4">
-            <select [(ngModel)]="selectedSortOption" (ngModelChange)="sortProducts()">
+        <div class="col-6">
+            <select class="mobile-drop-down" [(ngModel)]="selectedSortOption" (ngModelChange)="sortProducts()">
                 <option value="">Sort By</option>
                 <option value="nameAsc">Name (A-Z)</option>
                 <option value="nameDesc">Name (Z-A)</option>
@@ -42,7 +42,8 @@
         </div>
         <div class="col sort-drop-down" *ngIf="!isMobileResolution">
             <label for="sort">Sort by:</label>
-            <select class="mx-2" id="sort" [(ngModel)]="selectedSortOption" (ngModelChange)="sortProducts()">
+            <select class="mx-2 drop-down" [(ngModel)]="selectedSortOption" (ngModelChange)="sortProducts()">
+                <option value="">Sort By</option>
                 <option value="nameAsc">Name (A-Z)</option>
                 <option value="nameDesc">Name (Z-A)</option>
                 <option value="priceAsc">Price (Low to High)</option>
@@ -55,7 +56,7 @@
     <div class="row">
         <div class="col-md-2 col-xs-12" *ngIf="!isMobileResolution">
             <label for="category">Filter by Category:</label>
-            <select id="category" [(ngModel)]="selectedCategory" (change)="filterProducts()">
+            <select class="drop-down" [(ngModel)]="selectedCategory" (change)="filterProducts()">
               <option value="">Categories</option>
               <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
             </select>

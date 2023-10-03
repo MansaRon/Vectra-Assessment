@@ -22,6 +22,16 @@
     object-fit: cover;
 }
 
+.drop-down {
+    padding: 5px;
+    background-color: #eaeaea;
+    color: black;
+    border: none;
+    font-family: inherit;
+    outline: none;
+    border-radius: 1px;
+}
+
 @media (max-width: 576px) { 
     .card-width {
         width: 10rem;
@@ -35,5 +45,17 @@
 
     .mobileSearch {
         width: 25em;
+    }
+
+    .mobile-drop-down {
+        appearance: none;
+        padding: 5px;
+        background-color: #eaeaea;
+        color: black;
+        border: none;
+        font-family: inherit;
+        outline: none;
+        border-radius: 1px;
+        width: -moz-available;
     }
 }
